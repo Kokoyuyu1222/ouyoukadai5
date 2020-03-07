@@ -1,0 +1,34 @@
+<% if @datas.present? %>
+<% @datas.each do |data| %>
+<%  if @model == 'user' %>
+<table class='table'>
+	<tr>
+		<th>image</th>
+		<th>name</th>
+	</tr>
+	<tr>
+		<td>
+			<%= attachment_image_tag(data, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg") %>
+		</td>
+		<td>
+			<%= data.name %>
+		</td>
+		<td><%= link_to "Show", data %></td>
+	</tr>
+</table>
+	<% else %>
+	<table class='table'>
+	<tr>
+		<th>title</th>
+	</tr>
+	<tr>
+		<td>
+
+			<%= data.title %>
+		</td>
+		<td><%= link_to "Show", data %></td>
+	</tr>
+</table>
+<% end %>
+<% end %>
+<% end %>

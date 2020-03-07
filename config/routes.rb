@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   get 'home/about'
   devise_for :users
   resources :users,only: [:show,:index,:edit,:update]
-  resources :books
+  resources :books 
+
+  get '/search' => 'searches#search'
+  get '/search/index'=>'searches#index'
 end
